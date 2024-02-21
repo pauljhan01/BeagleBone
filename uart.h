@@ -1,6 +1,5 @@
 #ifndef UART_H
 #define UART_H
-
 #include "termios.h"
 #include "fcntl.h"
 #include "stdio.h"
