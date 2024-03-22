@@ -1,5 +1,6 @@
 #ifndef UART_H
 #define UART_H
+#include "time.h"
 #include "termios.h"
 #include "fcntl.h"
 #include "stdio.h"
@@ -13,10 +14,7 @@ typedef struct uart_config{
 	int tty_fd;
 }uart_config;
 
-void init_comm(struct uart_config * config);
+void init_comm(struct uart_config * config, int uart_mapping);
 
-void receive_message();
-
-void send_message();
-
+void send_and_receive(void);
 #endif
