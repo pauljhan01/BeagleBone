@@ -1,0 +1,74 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/pinctrl/k3.h>
+#include <dt-bindings/board/k3-j721e-bone-pins.h>
+
+&{/chosen} {
+	overlays {
+		BONE-UART_X5 = __TIMESTAMP__;
+	};
+};
+
+&main_pmx0 {
+
+	uartx5_4_pins_default:uartx5_4-pins-default {
+		pinctrl-single,pins = <
+		P9_37B(PIN_INPUT, 8)   /* UART4 RX */
+		P9_38B(PIN_OUTPUT, 8)  /* UART4 TX */
+		P9_37A(PIN_INPUT, 7)
+		P9_38A(PIN_INPUT, 7)
+		>;
+	};
+	uartx5_5_pins_default:uartx5_5-pins-default {
+		pinctrl-single,pins = <
+		P8_31B(PIN_INPUT, 14)  /* UART5 RX */
+		P8_37A(PIN_OUTPUT, 3) /* UART5 TX */
+		P8_31A(PIN_INPUT, 7)
+		P8_37B(PIN_INPUT, 7)
+		>;
+	};
+	uartx5_6_pins_default:uartx5_6-pins-default {
+		pinctrl-single,pins = <
+		P9_16(PIN_OUTPUT, 3)  /* UART6 TX */
+		P9_14(PIN_INPUT, 3)   /* UART6 RX */
+		>;
+	};
+	uartx5_8_pins_default:uartx5_8-pins-default {
+		pinctrl-single,pins = <
+		P8_29(PIN_OUTPUT, 14)  /* UART8 TX */
+		P8_28(PIN_INPUT, 14)   /* UART8 RX */
+		>;
+	};
+
+};
+
+
+&main_uart4 {
+	pinctrl-names = default;
+	pinctrl-0 = <&uartx5_4_pins_default>;
+	symlink = bone/uart/4;
+	status = okay;
+};
+
+&main_uart5 {
+	pinctrl-names = default;
+	pinctrl-0 = <&uartx5_5_pins_default>;
+	symlink = bone/uart/5;
+	status = okay;
+};
+
+&main_uart6 {
+	pinctrl-names = default;
+	pinctrl-0 = <&uartx5_6_pins_default>;
+	symlink = bone/uart/6;
+	status = okay;
+};
+
+&main_uart8 {
+	pinctrl-names = default;
+	pinctrl-0 = <&uartx5_8_pins_default>;
+	symlink = bone/uart/8;
+	status = okay;
+};
+
